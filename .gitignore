@@ -25,4 +25,4 @@ pnpm-debug.log*
 
 # local-only working assets (raw videos, source files, scratch).
 # anything we want to ship lives in src/assets/ or public/.
-Assets/
+/Assets/
