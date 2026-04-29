@@ -1,0 +1,113 @@
+---
+import { site } from "../site.config";
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="brand" aria-label={`${site.name}, home`}>
+      <span class="brand-name">{site.name}</span>
+      <span class="brand-role">{site.role}</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        {
+          site.nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={["nav-link", { active: isActive(item.href) }]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.9rem;
+    gap: 1rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .brand:hover {
+    color: var(--ink);
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-role {
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: inline-block;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition:
+      color var(--t-fast) var(--ease),
+      background var(--t-fast) var(--ease);
+  }
+
+  .nav-link:hover {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--ink) 5%, transparent);
+  }
+
+  .nav-link.active {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--ink) 7%, transparent);
+  }
+
+  @media (max-width: 540px) {
+    .brand-role {
+      display: none;
+    }
+    .nav-link {
+      padding-inline: 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

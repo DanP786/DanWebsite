@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../site.config";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Dan Pearce."
+>
+  <section class="container contact">
+    <p class="eyebrow">Contact</p>
+    <h1>Let's talk.</h1>
+    <p class="lede">
+      I'm open to senior and lead game design roles. The fastest way to reach me
+      is email, I read everything and reply within a couple of days.
+    </p>
+
+    <ul class="channels">
+      <li>
+        <a href={`mailto:${site.email}`}>
+          <span class="channel-label">Email</span>
+          <span class="channel-value">{site.email}</span>
+        </a>
+      </li>
+      <li>
+        <a href={site.linkedin} target="_blank" rel="noopener">
+          <span class="channel-label">LinkedIn</span>
+          <span class="channel-value">/in/dpearce823</span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="muted small">
+      Recruiters: I'm happy to hear about UK-based or remote-friendly roles.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact {
+    padding-top: 3rem;
+    max-width: 720px;
+  }
+
+  .lede {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    max-width: 56ch;
+  }
+
+  .channels {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .channels a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition:
+      transform var(--t-fast) var(--ease),
+      border-color var(--t-fast) var(--ease),
+      box-shadow var(--t-fast) var(--ease);
+  }
+
+  .channels a:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+    box-shadow: var(--shadow-sm);
+    color: inherit;
+  }
+
+  .channel-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .channel-value {
+    font-weight: 500;
+  }
+
+  .small {
+    font-size: 0.9rem;
+  }
+</style>

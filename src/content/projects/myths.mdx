@@ -1,0 +1,82 @@
+---
+title: Myths
+tagline: Live multiplayer dungeon crawler, live ops, balance, and analytics.
+type: flagship
+role: Senior Live Ops Designer
+teamSize: ~30
+dates: 2025 to present
+platforms: ["PC", "Mobile"]
+tech: Unity / Metaplay
+hero: ../../assets/projects/myths/hero.jpg
+heroAlt: Myths, combat in a lava arena
+thumbnail: ../../assets/projects/myths/thumbnail.png
+thumbnailAlt: Myths inventory screen with equipped character
+localVideo: /videos/myths-loop.mp4
+order: 1
+---
+
+import { Image } from "astro:assets";
+import stoneCoop from "../../assets/projects/myths/stone-coop.jpg";
+import chaosPortal from "../../assets/projects/myths/chaos-portal.jpg";
+import explosion from "../../assets/projects/myths/explosion.jpg";
+
+## Context
+
+Myths is a multiplayer dungeon crawler / hack-and-slash ARPG by Spectarium. Aimed at mid-core mobile players. Design references: Diablo Immortal and Path of Exile. Team of around 30.
+
+## What I own
+
+Live-ops planning and feature design, combat and economy balance, and the analytics work that drives both.
+
+<Image src={stoneCoop} alt="Multiplayer combat in a stone arena" />
+
+## Live ops planning
+
+### Revised FTUE
+
+Redesigned the FTUE to introduce the features the team had been shipping over the previous months. Three threads of work:
+
+- **Planned the main beats.** Identified what should be introduced and when, what's relevant to the player at each step of the first session, and what to hold back.
+- **Defined the contextual tutorial tool.** Specified what it triggers off, the shape of the prompts, and where each prompt sits in the FTUE thread.
+- **Iterated toward 60% FTUE completion.** That was the target tied to Day 1 retention. Repeat playtest cycles to get there.
+
+### Eternal Trials
+
+A lightweight live-ops feature: existing Story Content repurposed as a daily re-energised challenge. Active once per day, drops high-level loot.
+
+Constraint: no new content, no new code paths if avoidable. Eternal Trials wraps existing story stages with a daily timer and a loot table weighted to high-end rewards.
+
+## Balancing
+
+Myths' loot follows the typical ARPG framework: drops scale with player level, rarities run Common → Legendary, higher rarities carry more affixes, and affix ranges scale with level and rarity.
+
+<Image src={explosion} alt="A high-impact ability lands in the middle of a fight" />
+
+### Loot rolls
+
+Built balancing tools (with Claude) that wrote values directly back into Unity, a seamless loop between tuning numbers, sanity-checking math, and seeing changes in-engine. Used Claude for design rubber-ducking throughout.
+
+Three things tuned through this loop:
+
+- **Affix value ranges.** What numbers each affix can roll, by level and rarity.
+- **Affix counts per rarity.** How many affixes a Common rolls vs. a Legendary.
+- **Affix-to-item mapping.** Which items can house which affixes.
+
+### Currency economy
+
+Balanced supply and sinks across **Gold**, **Gems**, and **Ticket currencies**, tuning each toward an ideal session length for the cohort it's intended for. Same Claude-built tooling and rubber-ducking loop.
+
+## Analytics & data-driven design
+
+### Telemetry & metric hooks
+
+Outlined the events and metrics the game emits, what's required to read player engagement, play patterns, and signalling.
+
+### Analytics dashboard
+
+Built an analytics dashboard (with Claude) pulling from BigQuery via materialised tables. Pages cover:
+
+- FTUE funnels
+- Retention and Conversion
+- Gameplay engagement
+- Economy balancing

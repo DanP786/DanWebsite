@@ -1,0 +1,302 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../site.config";
+---
+
+<BaseLayout
+  title="CV"
+  description="CV / résumé for Dan Pearce, Senior Live Ops Designer."
+>
+  <section class="container cv">
+    <header class="cv-head">
+      <div>
+        <p class="eyebrow">Curriculum Vitae</p>
+        <h1>{site.name}</h1>
+        <p class="title">Senior Games Designer | Monetisation & Systems Specialist</p>
+        <p class="muted">Leamington Spa, UK · {site.email} · (+44) 07791 682382</p>
+      </div>
+      <a class="btn" href="/dan-pearce-cv.pdf" download>Download PDF</a>
+    </header>
+
+    <section class="cv-section">
+      <h2>Summary</h2>
+      <p>
+        Creative, data-driven game designer with 14+ years' experience in
+        mobile and console games. Expert in systems design, game economy
+        balancing, and LiveOps monetisation strategy, with a strong track record
+        of delivering features that drive engagement and revenue. Proven ability
+        to lead design teams, collaborate cross-functionally with developers and
+        artists, and iterate based on player feedback and analytics. Passionate
+        about creating immersive experiences.
+      </p>
+    </section>
+
+    <section class="cv-section">
+      <h2>Areas of emphasis</h2>
+      <ul class="skills">
+        <li>Free-to-Play Design & Monetisation (IAP, Ads, Subscriptions)</li>
+        <li>Game Economy Design & Balancing</li>
+        <li>AI Workflows: rapid tool creation & prototyping</li>
+        <li>A/B Testing & KPI-Driven Iteration</li>
+        <li>UX & UI Flow Design (Wireframes, Prototypes)</li>
+        <li>Unity & Unreal Engine</li>
+        <li>LUA, JSON, Visual Scripting</li>
+        <li>Systems & Progression Loop Design</li>
+        <li>LiveOps: Seasonal Events, Retention Strategies</li>
+        <li>Mentoring & Cross-Discipline Collaboration</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h2>Experience</h2>
+
+      <article class="role">
+        <header>
+          <h3>Senior Live Ops Designer</h3>
+          <p class="muted">Spectarium · Leamington Spa, UK · Oct 2025 to Present</p>
+        </header>
+        <p>
+          Designing and balancing systems for Myths, a multiplayer
+          hack-and-slash ARPG built in Unity on the Metaplay backend.
+        </p>
+        <ul>
+          <li>Designed and balanced core gameplay systems including combat, itemisation, and progression-gated content.</li>
+          <li>Built internal data tooling to make design data-driven, specifically a robust balance tool built with Claude Code.</li>
+          <li>Built an analytics stack end-to-end using Claude Code to assess retention, FTUE funnels, economy, and live churn drivers.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header>
+          <h3>Lead Games Designer</h3>
+          <p class="muted">Electric Square / Lively · Leamington Spa, UK · Nov 2022 to Sep 2025</p>
+        </header>
+        <p>
+          Leading design across multiple mobile F2P projects, working directly
+          with clients and internal teams to deliver engaging systems and
+          monetisation features.
+        </p>
+        <ul>
+          <li>Led prototyping sessions to align gameplay with player motivations and business goals.</li>
+          <li>Designed core systems including progression, economy, and monetisation mechanics.</li>
+          <li>Delivered pitch decks and design documentation to win new client projects.</li>
+          <li>Mentored junior designers, encouraging best practices across feature design and documentation.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header>
+          <h3>Senior Games Designer</h3>
+          <p class="muted">Third Kind Games · Leamington Spa, UK · Nov 2021 to Nov 2022</p>
+        </header>
+        <p>
+          Designed and implemented systems for Blankos Block Party, focusing on
+          blockchain-integrated features and player economy.
+        </p>
+        <ul>
+          <li>Created and balanced seasonal reward passes, improving retention and conversion.</li>
+          <li>Iterated on gameplay systems based on player feedback and analytics.</li>
+          <li>Collaborated with developers and analysts to implement metrics and track performance.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header>
+          <h3>Senior Live Ops Designer</h3>
+          <p class="muted">Lockwood Publishing · Nottingham, UK · Apr 2019 to Nov 2021</p>
+        </header>
+        <p>
+          Directed monthly event content and monetisation strategies for Avakin
+          Life, a large-scale virtual world mobile game.
+        </p>
+        <ul>
+          <li>Designed and launched multiple content drops and developed ongoing event monetisation strategies.</li>
+          <li>Created LiveOps tools and A/B tests that enabled faster iteration and deeper user insights.</li>
+          <li>Increased user engagement and revenue through data-informed content planning.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header>
+          <h3>Games Designer</h3>
+          <p class="muted">Hugo Games / Fuzzy Frog · Nottingham, UK · Feb 2018 to Mar 2019</p>
+        </header>
+        <p>
+          Led level and event content design for Doodle Jump Space Chase.
+        </p>
+        <ul>
+          <li>Defined the content design pipeline and created tools to streamline production.</li>
+          <li>Developed seasonal and narrative-themed events to drive engagement.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header>
+          <h3>Games Designer (Contractor)</h3>
+          <p class="muted">Oysterworld / Holdbrand Ltd · Cardiff, UK · Jul 2015 to Jan 2018</p>
+        </header>
+      </article>
+
+      <article class="role">
+        <header>
+          <h3>Technical Game Designer</h3>
+          <p class="muted">Wales Interactive · Cardiff, UK · Dec 2012 to Jul 2015</p>
+        </header>
+      </article>
+    </section>
+
+    <section class="cv-section">
+      <h2>Education</h2>
+      <p>
+        <strong>BA (Hons) Computer Games Design</strong> · 2.1 ·
+        University of South Wales
+      </p>
+    </section>
+
+    <section class="cv-section">
+      <h2>What people say</h2>
+
+      <blockquote class="quote">
+        <p>
+          Dan is an amazing designer with great technical skills! I was very
+          impressed by his drive and hard work. He is not afraid to push the
+          boundaries to get great experiences for the players. Especially his
+          analytical skills which are very good and support design decisions
+          and iterations!
+        </p>
+        <cite>Sina Jafarzadeh · Lockwood Publishing</cite>
+      </blockquote>
+
+      <blockquote class="quote">
+        <p>
+          During our time working together, Dan helped create and oversee the
+          implementation of many systems but had ownership of the game's
+          concurrent Events, monitoring their progress and balancing rewards,
+          economy, and difficulty accordingly based on metrics he helped
+          implement into the game. Dan was an asset to the team, and I hope to
+          work with him again in the future.
+        </p>
+        <cite>Kev Harrison · Fuzzy Frog</cite>
+      </blockquote>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  .cv {
+    padding-top: 3rem;
+    max-width: 820px;
+  }
+
+  .cv-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .cv-head .title {
+    font-weight: 600;
+    margin: 0.4rem 0 0.3rem;
+  }
+
+  .cv-head .muted {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .cv-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .cv-section h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .role {
+    margin-bottom: 1.75rem;
+  }
+
+  .role header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .role h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .role .muted {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .role p {
+    margin-top: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .role ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .role li {
+    margin-bottom: 0.25rem;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skills li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.9rem;
+  }
+
+  .quote {
+    margin: 0 0 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+  }
+
+  .quote p {
+    margin: 0;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .quote cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+</style>

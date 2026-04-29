@@ -1,0 +1,61 @@
+---
+title: FIFA Heroes
+tagline: Licensed mobile football, design lead from prototype to production.
+type: flagship
+role: Lead Game Designer
+teamSize: ~30
+dates: 2024 to 2026
+platforms: ["iOS", "Android"]
+tech: Unity
+hero: ../../assets/projects/fifa-heroes/hero.jpg
+heroAlt: FIFA Heroes, favela pitch
+localVideo: /videos/fifa-heroes-loop.mp4
+order: 2
+---
+
+import { Image } from "astro:assets";
+import gameplay1 from "../../assets/projects/fifa-heroes/gameplay-1.webp";
+import gameplay2 from "../../assets/projects/fifa-heroes/gameplay-2.webp";
+import cast from "../../assets/projects/fifa-heroes/cast.jpg";
+
+## Context
+
+FIFA Heroes is a casual, arcade-style FIFA on mobile, a character-focused Gacha layered on football gameplay. Design references: Supercell titles. Team of around 30.
+
+## What I owned
+
+Lead Game Designer end-to-end, from prototype through production plan to overseeing the design pillar through development.
+
+<Image src={gameplay1} alt="FIFA Heroes gameplay" />
+
+## Prototyping
+
+Built the initial gameplay prototype. The brief: arcade-style football that could carry a character-focused Gacha economy on top.
+
+Pulled influence from Supercell titles. Focused initially on the **3Cs**, character, camera, controls, to nail moment-to-moment feel, then on how that translated to a long-term free-to-play structure.
+
+## Production planning
+
+Once the prototype was approved by the client, planned out work across all departments. Negotiated requirements and scope to land on what would deliver the quality and success the client was expecting.
+
+## Design leadership
+
+Worked directly with the design team, overseeing two areas:
+
+### Core gameplay experience
+
+**Touch controls.** Drag and swipe input added a skill layer to Pass and Shoot direction; hold-to-power for range and strength. The skill button timed tackle-avoidance. Sprint became a hold modifier on the Tackle button, we wanted to keep on-screen button count low and the controls accessible.
+
+**AI behaviour.** A real challenge given we had a fraction of EA's budget. We built a simple positional AI based on triangular movements between teammates. We also designed seamless swap between real opponent and bot, to cover disconnects and AFK without breaking the match.
+
+**Character Super Abilities.** No realism constraint, so these went broad and game-changing. Examples: tornadoes that pulled the ball off the player in possession, lightning that froze enemies, meteor shots that stunned the goalkeeper. Mario Strikers was a big reference. Balancing them was the challenge, impactful enough to drive the meta and Gacha pulls, but not so dominant they cannibalised core gameplay.
+
+<Image src={gameplay2} alt="FIFA Heroes gameplay" />
+
+### Meta systems
+
+**Gacha & character progression.** Characters were the pull, driven by stats, Supers, and general appeal. Licensed players sat in the higher rarities; FIFA Mascots filled lower rarities (less desirable but still useful pulls). Duplicates levelled a character up; level drove Shot Strength, Sprint Speed, Tackle Strength, and Pass Speed.
+
+**Battle Pass.** Our main monetisation hook, market research identified BP as the dominant pattern for our target demographic of Gen Z and Alpha players.
+
+<Image src={cast} alt="FIFA Heroes character cast and logo" />

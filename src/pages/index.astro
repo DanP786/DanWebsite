@@ -1,0 +1,337 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { site } from "../site.config";
+
+const all = await getCollection("projects", ({ data }) => !data.draft);
+all.sort((a, b) => a.data.order - b.data.order);
+const flagships = all.filter((p) => p.data.type === "flagship");
+const tiles = all.filter((p) => p.data.type === "tile");
+---
+
+<BaseLayout>
+  <section class="hero container">
+    <p class="eyebrow">Portfolio · {new Date().getFullYear()}</p>
+    <h1>
+      Hi, I'm <span class="accent">Dan Pearce</span>.<br />
+      I design games people stick with.
+    </h1>
+    <p class="lede">
+      {site.description}
+    </p>
+    <div class="cta">
+      <a class="btn" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="/cv">Read the CV →</a>
+    </div>
+  </section>
+
+  <section id="work" class="section container">
+    <header class="section-head">
+      <h2>Featured Work</h2>
+    </header>
+
+    <ul class="featured">
+      {
+        flagships.map((p) => {
+          const card = p.data.thumbnail ?? p.data.hero;
+          const cardAlt =
+            p.data.thumbnail
+              ? p.data.thumbnailAlt ?? p.data.title
+              : p.data.heroAlt ?? p.data.title;
+          return (
+          <li>
+            <a href={`/projects/${p.id}`} class="featured-card">
+              <div class="featured-thumb" aria-hidden="true">
+                {card ? (
+                  <Image
+                    src={card}
+                    alt={cardAlt}
+                    widths={[480, 720, 1080]}
+                    sizes="(max-width: 720px) 100vw, 50vw"
+                  />
+                ) : (
+                  <span class="thumb-fallback">{p.data.title}</span>
+                )}
+              </div>
+              <div class="featured-body">
+                <p class="eyebrow">
+                  {p.data.role} · {p.data.dates}
+                </p>
+                <h3>{p.data.title}</h3>
+                <p class="muted">{p.data.tagline}</p>
+                <span class="read">Read case study →</span>
+              </div>
+            </a>
+          </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+
+  <section class="section container">
+    <header class="section-head">
+      <h2>Other Selected Projects</h2>
+    </header>
+
+    <ul class="tiles">
+      {
+        tiles.map((p) => {
+          const card = p.data.thumbnail ?? p.data.hero;
+          const cardAlt =
+            p.data.thumbnail
+              ? p.data.thumbnailAlt ?? p.data.title
+              : p.data.heroAlt ?? p.data.title;
+          return (
+          <li>
+            <a href={`/projects/${p.id}`} class="tile">
+              <div class="tile-thumb" aria-hidden="true">
+                {card ? (
+                  <Image
+                    src={card}
+                    alt={cardAlt}
+                    widths={[320, 480, 720]}
+                    sizes="(max-width: 720px) 100vw, 33vw"
+                  />
+                ) : (
+                  <span class="thumb-fallback">{p.data.title}</span>
+                )}
+              </div>
+              <div class="tile-body">
+                <h3>{p.data.title}</h3>
+                <p class="muted">{p.data.tagline}</p>
+                <p class="meta-line">
+                  {p.data.role} · {p.data.dates}
+                </p>
+              </div>
+            </a>
+          </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+
+  <section class="section container about-teaser">
+    <p class="eyebrow">About</p>
+    <p class="teaser">
+      14+ years designing games across mobile, console, and PC. Currently
+      Senior Games Designer on Myths at Spectarium. I care about clarity,
+      craft, and the moment a player figures something out for themselves.
+    </p>
+    <a class="btn btn-ghost" href="/about">More about me →</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 9vw, 7rem) 2rem;
+  }
+
+  .hero h1 {
+    max-width: 16ch;
+  }
+
+  .lede {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    color: var(--muted);
+    max-width: 56ch;
+    margin-block: 1.25rem 1.75rem;
+  }
+
+  .cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .section {
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .section-head {
+    margin-bottom: 1.75rem;
+  }
+
+  .section-head h2 {
+    margin: 0.25rem 0 0;
+  }
+
+  .featured {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .featured-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) 1.2fr;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition:
+      transform var(--t-med) var(--ease),
+      box-shadow var(--t-med) var(--ease),
+      border-color var(--t-med) var(--ease);
+  }
+
+  .featured-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+    color: inherit;
+  }
+
+  .featured-thumb {
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent) 18%, var(--surface)),
+      color-mix(in srgb, var(--ink) 8%, var(--surface))
+    );
+    display: grid;
+    place-items: center;
+    color: color-mix(in srgb, var(--ink) 35%, transparent);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+  }
+
+  .featured-thumb :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--t-slow) var(--ease);
+  }
+
+  .featured-card:hover .featured-thumb :global(img) {
+    transform: scale(1.03);
+  }
+
+  .thumb-fallback {
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .featured-body {
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .featured-body h3 {
+    font-size: 1.75rem;
+    margin: 0.1rem 0 0.25rem;
+  }
+
+  .read {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .tiles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    .tiles {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition:
+      transform var(--t-med) var(--ease),
+      box-shadow var(--t-med) var(--ease),
+      border-color var(--t-med) var(--ease);
+  }
+
+  .tile:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+    color: inherit;
+  }
+
+  .tile-thumb {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent) 12%, var(--surface)),
+      color-mix(in srgb, var(--ink) 6%, var(--surface))
+    );
+    display: grid;
+    place-items: center;
+    color: color-mix(in srgb, var(--ink) 30%, transparent);
+    font-weight: 700;
+    overflow: hidden;
+  }
+
+  .tile-thumb :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--t-slow) var(--ease);
+  }
+
+  .tile:hover .tile-thumb :global(img) {
+    transform: scale(1.03);
+  }
+
+  .tile-body {
+    padding: 1.1rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .tile-body h3 {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+
+  .meta-line {
+    margin: 0.4rem 0 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .about-teaser {
+    text-align: center;
+  }
+
+  .about-teaser .teaser {
+    max-width: 60ch;
+    margin: 0.75rem auto 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 720px) {
+    .featured-card {
+      grid-template-columns: 1fr;
+    }
+    .featured-body {
+      padding: 1.25rem 1.25rem 1.5rem;
+    }
+  }
+</style>
