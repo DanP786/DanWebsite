@@ -1,8 +1,8 @@
 export const site = {
   name: "Dan Pearce",
   role: "Senior Games Designer",
-  domain: "danjpearce.games",
-  url: "https://danjpearce.games",
+  domain: "danjpearce.com",
+  url: "https://danjpearce.com",
   email: "dpearce823@gmail.com",
   linkedin: "https://www.linkedin.com/in/dpearce823/",
   description:
